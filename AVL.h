@@ -364,7 +364,7 @@ public:
 		}
 		Node* pparent = parent->_parent;
 		subR->_left = parent;
-		subR->_parent = pparent;
+		parent->_parent = subR;
 		if (parent == _root)
 		{
 			_root = subR;
@@ -380,6 +380,7 @@ public:
 			{
 				pparent->_parent = subR;
 			}
+			subR->_parent = pparent;
 		}
 		subR->_bf = parent->_bf = 0;
 	}
